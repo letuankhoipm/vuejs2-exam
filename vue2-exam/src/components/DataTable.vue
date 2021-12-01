@@ -137,11 +137,19 @@
             {{ item.status }}
           </span>
         </v-chip>
+        <v-chip class="my-2" v-if="item.status == 'Disabled'" dark>
+          <span class="font-weight-light px-4">
+            {{ item.status }}
+          </span>
+        </v-chip>
       </template>
       <template v-slot:[`item.actions`]>
         <v-icon small> mdi-dots-vertical </v-icon>
       </template>
     </v-data-table>
+    <div class="my-2">
+      <v-pagination dark v-model="page" :length="6"></v-pagination>
+    </div>
   </div>
 </template>
 <script>
@@ -171,7 +179,7 @@ export default {
         name: "Diamond Logistics",
         taxId: 4400098,
         businessDomain: "Carrier/NVOCC",
-        status: "Activated",
+        status: "Disabled",
       },
       {
         name: "Diamond Logistics",
