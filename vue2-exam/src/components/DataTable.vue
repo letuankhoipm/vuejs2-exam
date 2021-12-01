@@ -2,28 +2,24 @@
   <div>
     <v-row justify="center">
       <v-dialog v-model="dialogVisible" persistent max-width="800px">
-        <v-card dark class="pa-4">
+        <v-card dark class="px-15 py-6 bg-dialog">
           <v-card-title>
-            <span class="text-h5">Example Popup Title</span>
+            <span class="text-h6">Example Popup Title</span>
           </v-card-title>
 
           <div class="popup-tabs px-4 mt-8">
-            <v-tabs v-model="tab" background-color="dark" dark>
-              <v-tab
-                class="px-4 mx-4"
-                v-for="(item, index) in tabItems"
-                :key="index"
-              >
-                <span class="px-4">
+            <v-tabs v-model="tab" background-color="#1e222a" dark>
+              <v-tab class="px-4 mr-4" v-for="item in tabItems" :key="item.tab">
+                <span class="px-4 font-weight-light">
                   {{ item.tab }}
                 </span>
               </v-tab>
             </v-tabs>
           </div>
 
-          <v-tabs-items dark class="mx-2" v-model="tab">
+          <v-tabs-items class="mx-2 bg-dialog" dark v-model="tab">
             <v-tab-item v-for="(item, index) in tabItems" :key="index">
-              <v-card-text>
+              <v-card-text class="pa-0">
                 <v-container>
                   <v-row>
                     <v-col cols="4" sm="6" md="4">
@@ -39,9 +35,6 @@
                     </v-col>
                     <v-col cols="6" sm="6" md="4">
                       <v-select
-                        v-model="select"
-                        item-text="state"
-                        item-value="abbr"
                         label="Domain*"
                         persistent-hint
                         return-object
@@ -63,9 +56,6 @@
                     </v-col>
                     <v-col cols="6" sm="6" md="4">
                       <v-select
-                        v-model="select"
-                        item-text="state"
-                        item-value="abbr"
                         label="Domain*"
                         persistent-hint
                         return-object
@@ -87,9 +77,6 @@
                     </v-col>
                     <v-col cols="6" sm="6" md="4">
                       <v-select
-                        v-model="select"
-                        item-text="state"
-                        item-value="abbr"
                         label="Domain*"
                         persistent-hint
                         return-object
@@ -99,16 +86,22 @@
                   </v-row>
                 </v-container>
               </v-card-text>
-              <div class="text-left">
+              <div class="text-left py-8 px-3">
                 <v-spacer></v-spacer>
                 <v-btn
-                  color="blue darken-1 px-4 font-weight-light"
+                  class="btn-primary mr-2"
+                  color="blue darken-1 px-8 font-weight-light"
                   dark
-                  @click="dialogVisible = false"
+                  @click="closeDialog"
                 >
                   Save
                 </v-btn>
-                <v-btn color="primary" text @click="dialogVisible = false">
+                <v-btn
+                  color="#222732"
+                  class="btn-primary font-weight-light"
+                  dark
+                  @click="closeDialog"
+                >
                   Close
                 </v-btn>
               </div>
@@ -122,33 +115,39 @@
       dark
       :headers="headers"
       :items="desserts"
-      item-key="name"
       class="elevation-1 mt-4 dark-theme"
       @click:row="openDialog"
+      :footer-props="{
+        itemsPerPageText: 'Page size',
+      }"
     >
       <template v-slot:[`item.status`]="{ item }">
         <v-chip
-          class="my-2"
+          class="my-2 btn-activate"
           v-if="item.status == 'Activated'"
-          color="success"
           dark
         >
-          <span class="font-weight-light px-4">
+          <span class="font-weight-regular px-2">
             {{ item.status }}
           </span>
         </v-chip>
-        <v-chip class="my-2" v-if="item.status == 'Disabled'" dark>
-          <span class="font-weight-light px-4">
+        <v-chip class="my-2 btn-disabled" v-if="item.status == 'Disabled'" dark>
+          <span class="font-weight-regular px-2">
             {{ item.status }}
           </span>
         </v-chip>
       </template>
       <template v-slot:[`item.actions`]>
-        <v-icon small> mdi-dots-vertical </v-icon>
+        <v-icon small> mdi-dots-horizontal </v-icon>
       </template>
     </v-data-table>
     <div class="my-2">
-      <v-pagination dark v-model="page" :length="6"></v-pagination>
+      <v-pagination
+        class="pagination-custom"
+        :length="15"
+        :total-visible="7"
+        dark
+      ></v-pagination>
     </div>
   </div>
 </template>
@@ -223,8 +222,10 @@ export default {
 <style lang="scss">
 .popup-tabs {
   .v-tab {
-    background-color: #1d1d1d;
+    background-color: #1e222a;
     border-radius: 35px !important;
+    height: 35px !important;
+    font-size: 12px;
     color: #1976d2 !important;
 
     &:hover,
@@ -254,5 +255,42 @@ export default {
   .v-tabs-slider {
     display: none;
   }
+
+  .v-tab:before {
+    display: none;
+  }
+}
+
+.v-data-footer__icons-after,
+.v-data-footer__icons-before {
+  display: none !important;
+}
+
+.pagination-custom {
+  position: absolute;
+  bottom: 45px;
+
+  .v-pagination__item {
+    background: transparent !important;
+  }
+
+  .v-pagination__navigation {
+    display: none !important;
+  }
+}
+.v-data-footer {
+  margin-top: 20px;
+  border: none !important;
+}
+
+.btn-primary {
+  height: 30px !important;
+  width: 100px !important;
+  font-size: 12px !important;
+  border-radius: 8px !important;
+}
+
+.bg-dialog {
+  background-color: #1e222a !important;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <v-container class="info-field" fluid>
+  <v-container class="info-field py-4" fluid>
     <v-row>
-      <v-col class="py-0 label align-self-center" cols="6">
+      <v-col class="py-0 info-label align-self-center" cols="6">
         {{ info.title }}
       </v-col>
       <v-col class="py-0" cols="6">
@@ -9,9 +9,8 @@
 
         <v-btn
           v-if="info.status"
-          class="text-capitalize font-weight-light"
+          class="text-capitalize font-weight-regular btn-activate"
           rounded
-          color="success"
           dark
         >
           Activated

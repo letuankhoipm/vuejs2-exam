@@ -1,0 +1,79 @@
+$success: #62EC9C;
+$green: #008A40;
+$dark: #121621;
+$semi-dark: #1e222a;
+$disable: #222732;
+$gray: #798294;
+$light-gray: #242932;
+$primary: #1260D7;
+
+.dark-theme {
+  background-color: $dark !important;
+  color: white !important;
+}
+
+.semi-dark-theme {
+  background-color: $semi-dark !important;
+  color: white !important;
+}
+
+.info-label {
+  color: $gray !important;
+}
+
+.btn-activate {
+  background-color: $success !important;
+  color: $green !important;
+  height: 25px !important;
+  font-size: 15px;
+}
+
+.btn-disabled {
+  background-color: $disable !important;
+  color: $gray !important;
+  height: 25px !important;
+  font-size: 15px;
+}
+
+.mdi-chevron-right {
+  color: $light-gray !important;
+}
+
+.main-tabs {
+  .v-tab {
+    background: $light-gray;
+    border-top-right-radius: 15px !important;
+    border-top-left-radius: 15px !important;
+    border-bottom: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-top-right-radius: 15px;
+      border-top-left-radius: 15px;
+      background: $dark;
+    }
+  }
+
+  .v-tab--active {
+    border-top-right-radius: 15px !important;
+    border-top-left-radius: 15px !important;
+    background: $dark;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-top-right-radius: 15px !important;
+      border-top-left-radius: 15px !important;
+      background: $dark;
+    }
+  }
+
+  .v-slide-group__wrapper {
+    background: transparent;
+  }
+
+  .v-tabs-slider {
+    display: none;
+  }
+}

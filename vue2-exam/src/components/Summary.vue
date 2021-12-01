@@ -16,7 +16,7 @@
       <v-row>
         <v-col cols="6">
           <v-btn
-            class="font-weight-light text-uppercase mx-2"
+            class="font-weight-regular text-uppercase mx-2 py-5"
             rounded
             color="primary"
             dark
@@ -24,7 +24,7 @@
             <span class="px-4"> deferred payment </span>
           </v-btn>
           <v-btn
-            class="font-weight-light text-uppercase mx-2"
+            class="font-weight-regular text-uppercase mx-2 py-5"
             rounded
             color="primary"
             plain

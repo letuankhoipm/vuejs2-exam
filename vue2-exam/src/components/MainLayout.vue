@@ -3,10 +3,10 @@
     <v-card>
       <div class="main-tabs semi-dark-theme rounded-0">
         <v-tabs
-          class="mx-4 rounded-0"
+          class="px-4 rounded-0"
           v-model="tab"
           fixed-tabs
-          background-color="#2c2c2c"
+          background-color="#1e222a"
           dark
         >
           <v-tab
@@ -20,7 +20,7 @@
       </div>
 
       <v-tabs-items v-model="tab">
-        <v-tab-item v-for="item in items" :key="item.tab">
+        <v-tab-item v-for="item in items" :key="item.content">
           <v-card class="dark-theme rounded-0" flat>
             <v-card-text class="dark-theme">
               <Summary />
@@ -52,37 +52,3 @@ export default {
   }),
 };
 </script>
-
-<style lang="scss">
-.main-tabs {
-  .v-tab {
-    background: rgb(78, 78, 78);
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
-    border-bottom: none;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background: rgb(29, 29, 29);
-    }
-  }
-  .v-tab--active {
-    background: rgb(29, 29, 29);
-
-    &:hover,
-    &:active,
-    &:focus {
-      background: rgb(29, 29, 29);
-    }
-  }
-
-  .v-slide-group__wrapper {
-    background: transparent;
-  }
-
-  .v-tabs-slider {
-    display: none;
-  }
-}
-</style>

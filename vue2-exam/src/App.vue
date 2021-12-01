@@ -2,9 +2,7 @@
   <v-app>
     <NavigationBar />
     <v-main class="semi-dark-theme">
-      <v-container fluid>
-        <MainLayout />
-      </v-container>
+      <MainLayout />
     </v-main>
   </v-app>
 </template>
@@ -24,14 +22,6 @@ export default {
   data: () => ({}),
 };
 </script>
-<style>
-.dark-theme {
-  background-color: #1d1d1d !important;
-  color: white !important;
-}
-
-.semi-dark-theme {
-  background-color: #2c2c2c !important;
-  color: white !important;
-}
+<style lang="scss">
+@import "./assets/main.scss";
 </style>
