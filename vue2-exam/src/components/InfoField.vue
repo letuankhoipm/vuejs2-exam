@@ -28,10 +28,4 @@ export default {
   data: () => ({}),
 };
 </script>
-<style lang="scss">
-.info-field {
-  .label {
-    width: 200px;
-  }
-}
-</style>
+<style lang="scss"></style>

@@ -21,9 +21,7 @@ export default {
     MainLayout,
   },
 
-  data: () => ({
-    //
-  }),
+  data: () => ({}),
 };
 </script>
 <style>
